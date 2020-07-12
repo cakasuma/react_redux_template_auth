@@ -6,6 +6,11 @@ const clearUser = () => ({ type: "CLEAR_USER" });
 
 const setErorr = (payload) => ({ type: "SET_ERROR", payload });
 
+const getAuthHeader = () => {
+    const token = localStorage.getItem('token');
+    return { Authorization: `Bearer ${token}` }
+}
+
 export const login = (credentials) => (dispatch) => {
   API.post('/user/login', {
     email: credentials.email,
@@ -35,10 +40,7 @@ export const register = (user_info) => dispatch => {
 }
 
 export const logout = () => dispatch => {
-    const token = localStorage.getItem('token');
-    API.post('/user/logout', null, { headers: {
-        Authorization: `Bearer ${token}`
-    }}).then(() => {
+    API.post('/user/logout', null, { ...getAuthHeader() }).then(() => {
         dispatch(clearUser())
     }).catch((error) => {
         dispatch(setErorr(error.message));
@@ -46,10 +48,7 @@ export const logout = () => dispatch => {
 }
 
 export const verify = () => dispatch => {
-    const token = localStorage.getItem('token');
-    API.post('/user/profile', null, { headers: {
-        Authorization: `Bearer ${token}`
-    }}).then((response) => {
+    API.post('/user/profile', null, { ...getAuthHeader() }).then((response) => {
         dispatch(populateUser(response.user));
     }).catch((error) => {
         if (error.code === 401) {
@@ -57,6 +56,5 @@ export const verify = () => dispatch => {
         } else {
             dispatch(setErorr(error.message));
         }
-       
     })
 }
