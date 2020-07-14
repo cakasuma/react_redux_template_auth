@@ -1,28 +1,24 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Formik } from "formik";
-import { login } from "actions/user-action";
+import { register } from "actions/user-action";
 import { email_regex } from "utility";
 
-const Login = () => {
-  const [error_message, setErrorMessage] = React.useState('')
+const Register = () => {
   const dispatch = useDispatch();
   const initial_values = {
+    first_name: "",
     email: "",
     password: "",
   };
 
-  const handleSubmit = (values, { setSubmitting }) => {
-    setSubmitting(true);
-    dispatch(login(values)).catch(error => {
-      setErrorMessage(error)
-      setSubmitting(false);
-    });
+  const handleSubmit = (values) => {
+    dispatch(register(values))
   };
 
   return (
     <>
-      <div>Login</div>
+      <div>Register</div>
       <Formik
         initialValues={initial_values}
         validate={(values) => {
@@ -35,6 +31,9 @@ const Login = () => {
 
           if (!values.password) {
             errors.password = "Password Required";
+          }
+          if (!values.first_name) {
+            errors.first_name = "First name Required";
           }
           return errors;
         }}
@@ -50,6 +49,15 @@ const Login = () => {
           isSubmitting,
         }) => (
           <form onSubmit={handleSubmit}>
+            <input
+              type="first_name"
+              name="first_name"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.first_name}
+              placeholder='First name'
+            />
+            <span>{errors.first_name && touched.first_name && errors.first_name}</span>
             <input
               type="email"
               name="email"
@@ -71,7 +79,6 @@ const Login = () => {
             <button type="submit" disabled={isSubmitting}>
               Submit
             </button>
-        <span>{error_message}</span>
           </form>
         )}
       </Formik>
@@ -79,4 +86,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

@@ -3,10 +3,10 @@ import axios from "axios";
 const getBackendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3000';
 const API = (() => {
   return {
-    get: (path, param) => axios.get(`${getBackendUrl}${path}`, param),
-    delete: (path, param) => axios.delete(`${getBackendUrl}${path}`, param),
-    post: (path, param) => axios.post(`${getBackendUrl}${path}`, param),
-    put: (path, param) => axios.put(`${getBackendUrl}${path}`, param),
+    get: (path, param, options) => axios.get(`${getBackendUrl}${path}`, param, options),
+    delete: (path, param, options) => axios.delete(`${getBackendUrl}${path}`, param, options),
+    post: (path, param, options) => axios.post(`${getBackendUrl}${path}`, param, options),
+    put: (path, param, options) => axios.put(`${getBackendUrl}${path}`, param, options),
   };
 })();
 

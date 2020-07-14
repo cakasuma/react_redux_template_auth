@@ -13,7 +13,6 @@ const userReducer = (state = default_state, action) => {
                 error_message: default_state.error_message
             }
         case 'CLEAR_USER':
-            localStorage.clear()
             return {
                 is_logged_in: false,
                 user: {},
