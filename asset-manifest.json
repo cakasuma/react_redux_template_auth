@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react_redux_template_auth/static/css/main.7cb117e3.chunk.css",
+    "main.js": "/react_redux_template_auth/static/js/main.09ebad12.chunk.js",
+    "main.js.map": "/react_redux_template_auth/static/js/main.09ebad12.chunk.js.map",
+    "runtime-main.js": "/react_redux_template_auth/static/js/runtime-main.fffc57f3.js",
+    "runtime-main.js.map": "/react_redux_template_auth/static/js/runtime-main.fffc57f3.js.map",
+    "static/js/2.be13f3da.chunk.js": "/react_redux_template_auth/static/js/2.be13f3da.chunk.js",
+    "static/js/2.be13f3da.chunk.js.map": "/react_redux_template_auth/static/js/2.be13f3da.chunk.js.map",
+    "index.html": "/react_redux_template_auth/index.html",
+    "precache-manifest.63fff2dfa71549463f9bcc80568bc96a.js": "/react_redux_template_auth/precache-manifest.63fff2dfa71549463f9bcc80568bc96a.js",
+    "service-worker.js": "/react_redux_template_auth/service-worker.js",
+    "static/css/main.7cb117e3.chunk.css.map": "/react_redux_template_auth/static/css/main.7cb117e3.chunk.css.map",
+    "static/js/2.be13f3da.chunk.js.LICENSE.txt": "/react_redux_template_auth/static/js/2.be13f3da.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/react_redux_template_auth/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fffc57f3.js",
+    "static/js/2.be13f3da.chunk.js",
+    "static/css/main.7cb117e3.chunk.css",
+    "static/js/main.09ebad12.chunk.js"
+  ]
+}
