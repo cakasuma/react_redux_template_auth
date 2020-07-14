@@ -21,7 +21,7 @@ const App = () => {
       setLoading(false)
     })
     
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App">
