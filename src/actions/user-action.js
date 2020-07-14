@@ -52,6 +52,7 @@ export const register = (user_info) => (dispatch) => new Promise((resolve) => {
 export const logout = () => (dispatch) => new Promise((resolve) => {
   API.post("/user/logout", null, { headers: { ...getAuthHeader() } })
     .then(() => {
+      localStorage.clear()
       dispatch(clearUser());
       resolve()
     })
